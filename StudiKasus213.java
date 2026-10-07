@@ -37,6 +37,24 @@ public class StudiKasus213 {
                 System.out.println("Status : Does not receive award funds (only for 1st, 2nd, or 3rd place).");
             }
 
+        } else if (activityType.equalsIgnoreCase("PKM")) {
+
+            System.out.print("PKM funding status (1 = funded, 0 = not funded) : ");
+            fundingStatus = scanner.nextInt();
+
+            if (fundingStatus == 1) {
+                if (documentCount == 4) {
+                    System.out.println("Status : Eligible to receive award funds (PKM funded).");
+                } else {
+                    missingDocs = 4 - documentCount;
+                    System.out.println("Status : Incomplete documents (" + missingDocs + " document(s) missing). Award funds are not given.");
+                }
+            } else {
+                System.out.println("Status : Does not receive award funds (PKM not funded).");
+            }
+
+        } else {
+            System.out.println("Status : Does not receive award funds (activity type is not covered by the provisions).");
         }
 
         scanner.close();
